@@ -25,7 +25,7 @@
             <h1>Despacito</h1>
             <p>Luis Fonsi Ft. Puerto Rican</p>
 
-            <audio controls id="song">
+            <audio  id="song">
                 <source src="audio.mp3" type="audio/mpeg">
             </audio>
             <input type="range" name="" value="0" id="progress">
@@ -66,6 +66,12 @@
             setInterval(() => {
                 progress.value = song.currentTime
             }, 500);
+        }
+        progress.onchange = function () {
+            song.play()
+            song.currentTime = progress.value
+            ctrlIcon.classList.add('fa-pause')
+            ctrlIcon.classList.remove('fa-play')
         }
     </script>
 </body>
